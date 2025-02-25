@@ -55,10 +55,7 @@
 
 <h3 align="center">GITHUB STATS</h3>
 
-|                                                                                                                                               |                                                                                                    |
-| :-------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
-| ![](https://github-readme-stats.vercel.app/api?username=VemAiensi&theme=dark&hide_border=false&include_all_commits=false&count_private=false) | ![](https://github-readme-streak-stats.herokuapp.com/?user=vemaiensi&theme=dark&hide_border=false) |
-
+![](https://github-readme-stats.vercel.app/api?username=VemAiensi&theme=algolia&hide_border=false&show_icons=true&include_all_commits=false&count_private=false&card_width=450) ![](https://github-readme-streak-stats.herokuapp.com?user=VemAiensi&theme=algolia&hide_border=false&date_format=j%20M%5B%20Y%5D&card_width=400)
 <br>
 
 <h3>BIO:</h3>
