@@ -1,0 +1,21 @@
+.content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  padding: 2rem;
+  gap: 50px;
+}
+
+.profile {
+  max-width: 300px;
+}
+.divider {
+  width: 3px;
+  height: 70vh;
+  border-radius: 1.5px;
+  background-color: #0f1631;
+}
+.main-window h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
