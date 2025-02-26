@@ -8,15 +8,44 @@ import Projects from "./pageContents/Projects";
 import Certificates from "./pageContents/Certificates";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SchoolIcon from "@mui/icons-material/School";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 
 function Content({ displayedContent }) {
   function renderContent(page) {
     switch (page) {
       case "about":
-        return <About />;
+        return (
+          <div className="content-container">
+            <div className="heading">
+              <motion.h1
+                key="about"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                About Me
+              </motion.h1>
+            </div>
+
+            <About />
+
+            <div className="bottom-shade"></div>
+          </div>
+        );
       case "projects":
-        return <Projects />;
+        return (
+          <div className="content-container">
+            <div className="heading">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                Projects
+              </motion.h1>
+            </div>
+
+            <Projects />
+          </div>
+        );
       case "certs":
         return <Certificates />;
     }
@@ -27,8 +56,22 @@ function Content({ displayedContent }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="content-container"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
+      <motion.div
+        initial={{ width: "0%" }}
+        animate={{
+          width: "100%",
+          transition: {
+            duration: 1,
+            ease: easeOut,
+          },
+        }}
+        className="nav-line"
+      ></motion.div>
       <div className="content">
         <div className="profile">
           <ProfilePic></ProfilePic>

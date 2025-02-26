@@ -39,9 +39,9 @@ function Hero(props) {
       <motion.img variants={childVariants} src="/white.svg" />
       <motion.h1 variants={childVariants}>PROFESSIONAL PROFILE</motion.h1>
       <motion.h2 variants={childVariants}>VEM AIENSI MARASIGAN</motion.h2>
-      <div className="quick-links">
+      <motion.div variants={childVariants} className="quick-links">
         <Links direction="links-row"></Links>
-      </div>
+      </motion.div>
       <motion.p variants={childVariants}>© {year}</motion.p>
     </motion.div>
   );

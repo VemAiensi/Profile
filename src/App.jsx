@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="main-container">
       <AnimatePresence>
-        <Nav fncs={navFncs}></Nav>
+        <Nav hero={hero} fncs={navFncs}></Nav>
         {hero && <Hero key="hero" togglePage={toggleHero}></Hero>}
         {content && (
           <Content key="content" displayedContent={displayedContent} />
