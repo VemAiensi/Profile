@@ -1,10 +1,36 @@
 import React from "react";
 import "./common.css";
+import { motion } from "framer-motion";
 
 function Links({ direction }) {
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Delay between each child's animation
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className={direction}>
-      <a href="https://www.linkedin.com/in/vem-aiensi/" target="_blank">
+    <motion.div
+      variants={containerVariant}
+      initial="hidden"
+      animate="visible"
+      className={direction}
+    >
+      <motion.a
+        variants={childVariants}
+        whileHover={{ scale: 1.2 }}
+        href="https://www.linkedin.com/in/vem-aiensi/"
+        target="_blank"
+      >
         <svg
           width="207px"
           height="207px"
@@ -28,8 +54,13 @@ function Links({ direction }) {
             />{" "}
           </g>
         </svg>
-      </a>
-      <a href="https://www.instagram.com/vem.aiensi/" target="_blank">
+      </motion.a>
+      <motion.a
+        whileHover={{ scale: 1.2 }}
+        variants={childVariants}
+        href="https://www.instagram.com/vem.aiensi/"
+        target="_blank"
+      >
         <svg
           width="800px"
           height="800px"
@@ -67,8 +98,15 @@ function Links({ direction }) {
             />{" "}
           </g>
         </svg>
-      </a>
-      <a href="https://github.com/VemAiensi/" target="_blank">
+      </motion.a>
+      <motion.a
+        whileHover={{
+          scale: 1.2,
+        }}
+        variants={childVariants}
+        href="https://github.com/VemAiensi/"
+        target="_blank"
+      >
         <svg
           width="800px"
           height="800px"
@@ -117,8 +155,8 @@ function Links({ direction }) {
             </g>{" "}
           </g>
         </svg>
-      </a>
-    </div>
+      </motion.a>
+    </motion.div>
   );
 }
 

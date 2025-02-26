@@ -1,12 +1,12 @@
 .nav {
   box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 20px;
   z-index: 2;
-  margin-bottom: 30px;
-  border-bottom: 5px solid #00ca6e;
   font-size: 1.2rem;
 }
 .brand {
@@ -39,9 +39,16 @@
   align-items: center;
   gap: 20px;
 }
+
 .nav-links span {
-  display: flex;
-  align-items: center;
+  transition: opacity 0.6s ease;
+  cursor: pointer;
+}
+.nav-links:hover {
+  color: #5fffb7;
+}
+.nav-links:hover > :not(:hover) {
+  opacity: 0.4;
 }
 
 .links {
@@ -56,7 +63,6 @@
 }
 .links-row {
   display: flex;
-  padding: 10px;
   justify-content: center;
 }
 a {

@@ -1,45 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./common/Nav";
 import Links from "./common/Links";
 import "./content.css";
-function Content({ togglePage }) {
+import ProfilePic from "./ProfilePictures";
+import About from "./pageContents/About";
+import Projects from "./pageContents/Projects";
+import Certificates from "./pageContents/Certificates";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import SchoolIcon from "@mui/icons-material/School";
+import { motion } from "framer-motion";
+
+function Content({ displayedContent }) {
+  function renderContent(page) {
+    switch (page) {
+      case "about":
+        return <About />;
+      case "projects":
+        return <Projects />;
+      case "certs":
+        return <Certificates />;
+    }
+  }
+
   return (
-    <>
-      <Nav fncs={togglePage}></Nav>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="content-container"
+    >
       <div className="content">
         <div className="profile">
-          <img src="/white.svg" alt="" width="100px" />
-          <h3>Vem Aiensi Marasigan</h3>
-          <h3>Full Stack Web Developer</h3>
+          <ProfilePic></ProfilePic>
+          <h3>VEM AIENSI A. MARASIGAN</h3>
+          <h3>UI/ UX | Full Stack Web Developer</h3>
           <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            maiores dolore reprehenderit modi reiciendis eius eos vel tempore
-            libero sequi, fugiat harum quibusdam animi labore magnam consequatur
-            illo. Debitis, qui.
-          </p>
+
+          <div className="profile-details">
+            <SchoolIcon /> <span>New Era University</span>
+          </div>
+
+          <div className="profile-details">
+            <LocationOnIcon /> <span>Quezon City Manila</span>
+          </div>
         </div>
+
         <div className="divider"></div>
-        <div className="main-window">
-          <h1>About Me</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            maiores dolore reprehenderit modi reiciendis eius eos vel tempore
-            libero sequi, fugiat harum quibusdam animi labore magnam consequatur
-            illo. Debitis, qui.
-          </p>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            maiores dolore reprehenderit modi reiciendis eius eos vel tempore
-            libero sequi, fugiat harum quibusdam animi labore magnam consequatur
-            illo. Debitis, qui.
-          </p>
-        </div>
+
+        {renderContent(displayedContent)}
       </div>
 
       <Links direction="links"></Links>
-    </>
+    </motion.div>
   );
 }
 

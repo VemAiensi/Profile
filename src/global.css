@@ -8,4 +8,9 @@ body {
   background-color: #162149;
   color: white;
   font-family: "Outfit";
+  overflow: hidden;
+}
+
+.main-container {
+  height: 100dvh;
 }
