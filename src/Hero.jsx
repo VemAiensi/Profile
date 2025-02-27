@@ -2,10 +2,9 @@ import React from "react";
 import "./components.css";
 import Links from "./common/Links";
 import { motion, easeInOut } from "framer-motion";
+import Footer from "./common/Footer";
 
 function Hero(props) {
-  const year = new Date().getFullYear();
-
   const containerVariant = {
     hidden: { opacity: 0 },
     visible: {
@@ -42,7 +41,7 @@ function Hero(props) {
       <motion.div variants={childVariants} className="quick-links">
         <Links direction="links-row"></Links>
       </motion.div>
-      <motion.p variants={childVariants}>© {year}</motion.p>
+      <Footer childVariants={childVariants}></Footer>
     </motion.div>
   );
 }

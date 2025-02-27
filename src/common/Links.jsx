@@ -11,18 +11,27 @@ function Links({ direction }) {
         staggerChildren: 0.2, // Delay between each child's animation
       },
     },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.1, // Adjust exit stagger as needed
+      },
+    },
   };
 
   const childVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
   };
 
   return (
     <motion.div
+      key={"content-links"}
       variants={containerVariant}
       initial="hidden"
       animate="visible"
+      exit="exit"
       className={direction}
     >
       <motion.a
