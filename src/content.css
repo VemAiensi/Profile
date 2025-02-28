@@ -92,7 +92,7 @@
 .main-window {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
   flex-grow: 1;
   padding: 20px;
   padding-top: 130px;
@@ -238,4 +238,23 @@
 }
 .gmap_iframe {
   height: 400px !important;
+}
+
+.project-card {
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+.project-card a h3 {
+  text-decoration: none;
+  color: white;
+  transition: color 0.4s ease;
+  cursor: pointer;
+}
+.project-card a h3:hover {
+  color: #5fffb7;
 }

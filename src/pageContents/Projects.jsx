@@ -1,25 +1,103 @@
 import React from "react";
+import { motion } from "framer-motion";
+import ProjectCard from "./ProjectCard";
+import qrgengif from "../assets/projects/qrgen.gif";
+import simonsays from "../assets/projects/simonsays.gif";
+import merrmail from "../assets/projects/merrmail.gif";
+import docsgen from "../assets/projects/docsgen.gif";
+import scompiler from "../assets/projects/scompiler.gif";
 
-function Projects() {
+function Projects(props) {
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="main-window">
-      <h1>Projects</h1>
-      <p>
-        Web Developer with a strong foundation in front-end development and the
-        ability to handle full-stack projects. Skilled in creating visually
-        appealing and user-friendly interfaces through effective design and
-        layout.
-      </p>
-      <br />
+    <motion.div
+      variants={containerVariant}
+      initial="hidden"
+      animate="visible"
+      className="main-window"
+      ref={props.ref}
+    >
+      <section>
+        <motion.p variants={childVariants}>
+          My portfolio documents my growth in web development. Beginning with a
+          solid understanding of HTML, CSS, and JavaScript, I now focus on
+          building applications using the React framework and leveraging the
+          power of npm packages.
+        </motion.p>
+        <br />
+      </section>
+      <section>
+        <h2>Personal</h2>
+        <div className="section-row">
+          <div className="section">
+            <ProjectCard
+              img={docsgen}
+              src="https://va-docs-gen.pages.dev"
+              title="Document Generator"
+              description="My own activity compiler into a document type output."
+            ></ProjectCard>
+          </div>
+          <div className="section">
+            <ProjectCard
+              img={simonsays}
+              src="https://va-docs-gen.pages.dev"
+              title="Simon Says"
+              description="Just a little game to test your memory ^_^"
+            ></ProjectCard>
+          </div>
+        </div>
+      </section>
 
-      <h3>Education</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam maiores
-        dolore reprehenderit modi reiciendis eius eos vel tempore libero sequi,
-        fugiat harum quibusdam animi labore magnam consequatur illo. Debitis,
-        qui.
-      </p>
-    </div>
+      <section>
+        <h2>My Platform: vibrant-arrow.org</h2>
+        <div className="section-row">
+          <div className="section">
+            <ProjectCard
+              img={qrgengif}
+              src="https://va-docs-gen.pages.dev"
+              title="QR Code Generator"
+              description="A pretty straight forward QR code generator that gives basic customization."
+            ></ProjectCard>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Collaborations</h2>
+        <div className="section-row">
+          <div className="section">
+            <ProjectCard
+              img={scompiler}
+              src="https://va-docs-gen.pages.dev"
+              title="Basic Java Syntax Checker"
+              description="A pretty straight forward QR code generator that gives basic customization."
+            ></ProjectCard>
+          </div>
+          <div className="section">
+            <ProjectCard
+              img={merrmail}
+              src="https://va-docs-gen.pages.dev"
+              title="Merrmail"
+              description="A pretty straight forward QR code generator that gives basic customization."
+            ></ProjectCard>
+          </div>
+        </div>
+      </section>
+    </motion.div>
   );
 }
 

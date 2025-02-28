@@ -106,7 +106,7 @@ function About(props) {
       className="main-window"
       ref={props.ref}
     >
-      <div className="section">
+      <section>
         <motion.p variants={childVariants}>
           I am a Web Developer with a strong foundation in front-end development
           and the ability to handle full-stack projects. Skilled in creating
@@ -119,9 +119,9 @@ function About(props) {
           enough foundation, I learned to use React.js and had been using it for
           over {renderExp()} now.
         </motion.p>
-      </div>
+      </section>
 
-      <div>
+      <section>
         <motion.h2 variants={childVariants}>Skills</motion.h2>
         <div className="section-row">
           <div className="section">
@@ -149,7 +149,7 @@ function About(props) {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <div className="section-row">
         <div className="section">

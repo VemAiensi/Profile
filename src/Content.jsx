@@ -54,6 +54,7 @@ function Content({ displayedContent }) {
           <div className="content-container">
             <div className="heading">
               <motion.h1
+                key="projects"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
@@ -61,11 +62,63 @@ function Content({ displayedContent }) {
               </motion.h1>
             </div>
 
-            <Projects />
+            <Projects ref={contentRef} />
+            <AnimatePresence>
+              {!linksVisibility && (
+                <div className="content-links">
+                  <motion.p
+                    key="contact-text"
+                    style={{ textAlign: "center" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                  >
+                    vem.aiensi@gmail.com
+                  </motion.p>
+                  <Links direction="links-row"></Links>
+                  <Footer></Footer>
+                </div>
+              )}
+            </AnimatePresence>
+
+            <div className="bottom-shade"></div>
           </div>
         );
       case "certs":
-        return <Certificates />;
+        return (
+          <div className="content-container">
+            <div className="heading">
+              <motion.h1
+                key="about"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                About Me
+              </motion.h1>
+            </div>
+
+            <About ref={contentRef} />
+            <AnimatePresence>
+              {!linksVisibility && (
+                <div className="content-links">
+                  <motion.p
+                    key="contact-text"
+                    style={{ textAlign: "center" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                  >
+                    vem.aiensi@gmail.com
+                  </motion.p>
+                  <Links direction="links-row"></Links>
+                  <Footer></Footer>
+                </div>
+              )}
+            </AnimatePresence>
+
+            <div className="bottom-shade"></div>
+          </div>
+        );
     }
   }
 
