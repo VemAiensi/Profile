@@ -258,3 +258,12 @@
 .project-card a h3:hover {
   color: #5fffb7;
 }
+
+.cert {
+  width: 300px;
+  margin-bottom: 30px;
+}
+
+.cert img {
+  width: 100%;
+}

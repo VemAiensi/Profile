@@ -41,60 +41,62 @@ function Projects(props) {
         <br />
       </section>
       <section>
-        <h2>Personal</h2>
+        <motion.h2 variants={childVariants}>Personal</motion.h2>
         <div className="section-row">
-          <div className="section">
+          <motion.div variants={childVariants} className="section">
             <ProjectCard
               img={docsgen}
               src="https://va-docs-gen.pages.dev"
               title="Document Generator"
               description="My own activity compiler into a document type output."
             ></ProjectCard>
-          </div>
-          <div className="section">
+          </motion.div>
+          <motion.div variants={childVariants} className="section">
             <ProjectCard
               img={simonsays}
               src="https://va-docs-gen.pages.dev"
               title="Simon Says"
               description="Just a little game to test your memory ^_^"
             ></ProjectCard>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section>
-        <h2>My Platform: vibrant-arrow.org</h2>
+        <motion.h2 variants={childVariants}>
+          My Platform: vibrant-arrow.org
+        </motion.h2>
         <div className="section-row">
-          <div className="section">
+          <motion.div variants={childVariants} className="section">
             <ProjectCard
               img={qrgengif}
               src="https://va-docs-gen.pages.dev"
               title="QR Code Generator"
               description="A pretty straight forward QR code generator that gives basic customization."
             ></ProjectCard>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section>
-        <h2>Collaborations</h2>
+        <motion.h2 variants={childVariants}>Collaborations</motion.h2>
         <div className="section-row">
-          <div className="section">
+          <motion.div variants={childVariants} className="section">
             <ProjectCard
               img={scompiler}
               src="https://va-docs-gen.pages.dev"
               title="Basic Java Syntax Checker"
               description="A pretty straight forward QR code generator that gives basic customization."
             ></ProjectCard>
-          </div>
-          <div className="section">
+          </motion.div>
+          <motion.div variants={childVariants} className="section">
             <ProjectCard
               img={merrmail}
               src="https://va-docs-gen.pages.dev"
               title="Merrmail"
               description="A pretty straight forward QR code generator that gives basic customization."
             ></ProjectCard>
-          </div>
+          </motion.div>
         </div>
       </section>
     </motion.div>

@@ -89,15 +89,15 @@ function Content({ displayedContent }) {
           <div className="content-container">
             <div className="heading">
               <motion.h1
-                key="about"
+                key="certificates"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                About Me
+                Certificates
               </motion.h1>
             </div>
 
-            <About ref={contentRef} />
+            <Certificates ref={contentRef} />
             <AnimatePresence>
               {!linksVisibility && (
                 <div className="content-links">
@@ -129,11 +129,19 @@ function Content({ displayedContent }) {
   useEffect(() => {
     function handleScroll() {
       if (
-        contentRef.current.scrollTop + contentRef.current.clientHeight ===
+        contentRef.current.scrollTop + contentRef.current.clientHeight + 10 >=
         contentRef.current.scrollHeight
       ) {
+        console.log(
+          contentRef.current.scrollTop + contentRef.current.clientHeight
+        );
         setLinksVisibility(false);
       } else {
+        console.log(
+          "Max:",
+          contentRef.current.scrollHeight,
+          contentRef.current.scrollTop + contentRef.current.clientHeight
+        );
         setLinksVisibility(true);
       }
     }
@@ -144,7 +152,7 @@ function Content({ displayedContent }) {
     return () => {
       scrollableElement.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [contentRef]);
 
   return (
     <motion.div
