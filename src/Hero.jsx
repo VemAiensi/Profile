@@ -3,6 +3,7 @@ import "./components.css";
 import Links from "./common/Links";
 import { motion, easeInOut } from "framer-motion";
 import Footer from "./common/Footer";
+import { useMediaQuery } from "@mui/material";
 
 function Hero(props) {
   const containerVariant = {
@@ -23,6 +24,7 @@ function Hero(props) {
       transition: { duration: 0.5, ease: easeInOut },
     },
   };
+  const wideScreen = useMediaQuery("(min-width: 550px)");
 
   return (
     <motion.div
@@ -36,8 +38,18 @@ function Hero(props) {
       onClick={props.togglePage}
     >
       <motion.img variants={childVariants} src="/white.svg" />
-      <motion.h1 variants={childVariants}>PROFESSIONAL PROFILE</motion.h1>
-      <motion.h2 variants={childVariants}>VEM AIENSI MARASIGAN</motion.h2>
+      <motion.h1
+        variants={childVariants}
+        className={wideScreen ? "wide-h1" : "mobile-h1"}
+      >
+        PROFESSIONAL PROFILE
+      </motion.h1>
+      <motion.h2
+        variants={childVariants}
+        className={wideScreen ? "wide-h2" : "mobile-h2"}
+      >
+        VEM AIENSI MARASIGAN
+      </motion.h2>
       <motion.div variants={childVariants} className="quick-links">
         <Links direction="links-row"></Links>
       </motion.div>

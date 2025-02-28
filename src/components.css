@@ -5,13 +5,26 @@
   flex-direction: column;
   height: 70%;
 }
-.hero h1 {
+.hero h1,
+.hero h2 {
+  text-align: center;
+}
+.wide-h1 {
   font-size: 4rem;
   letter-spacing: 3px;
 }
-.hero h2 {
+.wide-h2 {
   font-weight: 300;
   font-size: 2rem;
+}
+
+.mobile-h1 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+}
+.mobile-h2 {
+  font-weight: 300;
+  font-size: 1rem;
 }
 .hero img {
   width: 5rem;
