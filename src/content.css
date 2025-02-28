@@ -200,14 +200,15 @@
 .section {
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
-  margin-right: auto;
+  flex-grow: 1;
+  flex-basis: 300px;
   /* width: 100%; */
 }
 
 .section-row {
   display: flex;
   flex-direction: row;
+  gap: 20px;
   flex-wrap: wrap;
   /* flex-basis: 400px; */
 }
@@ -241,7 +242,6 @@
 }
 
 .project-card {
-  max-width: 300px;
   margin-bottom: 30px;
 }
 
@@ -260,7 +260,6 @@
 }
 
 .cert {
-  width: 300px;
   margin-bottom: 30px;
 }
 
