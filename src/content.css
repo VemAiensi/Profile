@@ -43,6 +43,7 @@
   align-items: flex-end;
   position: absolute;
   bottom: 0;
+  margin-bottom: -3px; /*Just for compensation*/
 }
 
 .heading h1 {
