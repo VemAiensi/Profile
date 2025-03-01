@@ -5,7 +5,7 @@ function ProjectCard({ img, src, title, description }) {
   return (
     <div className="project-card">
       <a href={src} target="_blank">
-        <motion.img whileHover={{ scale: 1.1 }} src={img} />
+        <motion.img whileHover={{ scale: 1.05 }} src={img} />
       </a>
       <br />
       <br />

@@ -5,8 +5,9 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 
-function Nav({ fncs }) {
+function Nav({ fncs, brand }) {
   const [togglePage, showAbout, showProjects, showCertificates] = fncs;
   const wideScreen = useMediaQuery("(min-width: 700px)");
 
@@ -21,12 +22,25 @@ function Nav({ fncs }) {
 
   return (
     <div className="nav">
-      <div className="brand">
-        <img src="/white.svg" alt="" />
-        <div className="nav-links" onClick={togglePage}>
-          <span>V. A. Marasigan</span>
-        </div>
-      </div>
+      <AnimatePresence>
+        {brand && (
+          <motion.div
+            key="brand"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: 1, ease: easeInOut }}
+            exit={{ opacity: 0 }}
+            className="brand"
+          >
+            <img src="/white.svg" alt="" />
+            <div className="nav-links" onClick={togglePage}>
+              <span>
+                <h3>V. A. Marasigan</h3>
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {wideScreen ? (
         <div className="nav-links">
           <span onClick={showAbout}>ABOUT</span>

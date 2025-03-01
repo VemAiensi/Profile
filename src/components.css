@@ -1,9 +1,16 @@
 .hero {
   display: flex;
-  justify-content: center;
+  padding-top: 20dvh;
   align-items: center;
   flex-direction: column;
-  height: 70%;
+  height: calc(100dvh - 80px);
+}
+.hero-container {
+  height: calc(100dvh - 100px);
+  overflow-y: scroll;
+}
+.hero-container::-webkit-scrollbar {
+  display: none;
 }
 .hero h1,
 .hero h2 {
@@ -30,5 +37,11 @@
   width: 5rem;
 }
 .quick-links {
-  margin-top: 100px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

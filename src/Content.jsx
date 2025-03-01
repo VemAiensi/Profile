@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Nav from "./common/Nav";
 import Links from "./common/Links";
-import Footer from "./common/Footer";
 import "./content.css";
 import Profile from "./Profile";
 import About from "./pageContents/About";
@@ -10,150 +8,22 @@ import Certificates from "./pageContents/Certificates";
 import { useMediaQuery } from "@mui/material";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
 
-function Content({ displayedContent }) {
+function Content({ displayedContent, linksVisibility, setLinksVisibility }) {
+  //Variables
   const wideScreen = useMediaQuery("(min-width: 1100px)");
-
+  function updateLinksVisibility(displayed) {
+    setLinksVisibility(displayed);
+  }
   function renderContent(page) {
     switch (page) {
       case "about":
-        return (
-          <div className="content-container">
-            <div className="heading">
-              <motion.h1
-                key="about"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                About Me
-              </motion.h1>
-            </div>
-
-            <About ref={contentRef} />
-            <AnimatePresence>
-              {!linksVisibility && (
-                <div className="content-links">
-                  <motion.p
-                    key="contact-text"
-                    style={{ textAlign: "center" }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                  >
-                    vem.aiensi@gmail.com
-                  </motion.p>
-                  <Links direction="links-row"></Links>
-                  <Footer></Footer>
-                </div>
-              )}
-            </AnimatePresence>
-
-            <div className="bottom-shade"></div>
-          </div>
-        );
+        return <About linksVisibilityFnc={updateLinksVisibility} />;
       case "projects":
-        return (
-          <div className="content-container">
-            <div className="heading">
-              <motion.h1
-                key="projects"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                Projects
-              </motion.h1>
-            </div>
-
-            <Projects ref={contentRef} />
-            <AnimatePresence>
-              {!linksVisibility && (
-                <div className="content-links">
-                  <motion.p
-                    key="contact-text"
-                    style={{ textAlign: "center" }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                  >
-                    vem.aiensi@gmail.com
-                  </motion.p>
-                  <Links direction="links-row"></Links>
-                  <Footer></Footer>
-                </div>
-              )}
-            </AnimatePresence>
-
-            <div className="bottom-shade"></div>
-          </div>
-        );
+        return <Projects linksVisibilityFnc={updateLinksVisibility} />;
       case "certs":
-        return (
-          <div className="content-container">
-            <div className="heading">
-              <motion.h1
-                key="certificates"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                Certificates
-              </motion.h1>
-            </div>
-
-            <Certificates ref={contentRef} />
-            <AnimatePresence>
-              {!linksVisibility && (
-                <div className="content-links">
-                  <motion.p
-                    key="contact-text"
-                    style={{ textAlign: "center" }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                  >
-                    vem.aiensi@gmail.com
-                  </motion.p>
-                  <Links direction="links-row"></Links>
-                  <Footer></Footer>
-                </div>
-              )}
-            </AnimatePresence>
-
-            <div className="bottom-shade"></div>
-          </div>
-        );
+        return <Certificates linksVisibilityFnc={updateLinksVisibility} />;
     }
   }
-
-  const [linksVisibility, setLinksVisibility] = useState(true);
-
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    function handleScroll() {
-      if (
-        contentRef.current.scrollTop + contentRef.current.clientHeight + 10 >=
-        contentRef.current.scrollHeight
-      ) {
-        console.log(
-          contentRef.current.scrollTop + contentRef.current.clientHeight
-        );
-        setLinksVisibility(false);
-      } else {
-        console.log(
-          "Max:",
-          contentRef.current.scrollHeight,
-          contentRef.current.scrollTop + contentRef.current.clientHeight
-        );
-        setLinksVisibility(true);
-      }
-    }
-
-    const scrollableElement = contentRef.current;
-    scrollableElement.addEventListener("scroll", handleScroll);
-
-    return () => {
-      scrollableElement.removeEventListener("scroll", handleScroll);
-    };
-  }, [contentRef]);
 
   return (
     <motion.div
@@ -178,10 +48,10 @@ function Content({ displayedContent }) {
       ></motion.div>
       <div className="content">
         {wideScreen && (
-          <>
-            <Profile></Profile>
+          <div className="profile-container">
+            <Profile detailsDisplay={true}></Profile>
             <div className="divider"></div>
-          </>
+          </div>
         )}
 
         {renderContent(displayedContent)}

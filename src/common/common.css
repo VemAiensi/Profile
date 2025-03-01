@@ -4,7 +4,7 @@
   margin: 0 auto;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  min-height: 90px;
   padding: 20px;
   z-index: 2;
   font-size: 1.2rem;
@@ -37,6 +37,8 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  justify-self: flex-end;
+  margin-left: auto;
 }
 
 .nav-links span {

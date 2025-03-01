@@ -1,53 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Content from "./Content";
 import Hero from "./Hero";
 import { AnimatePresence } from "framer-motion";
 import Nav from "./common/Nav";
 
 function App() {
-  const [hero, setHero] = useState(true);
-  const [content, setContent] = useState(false);
+  const [heroPage, setHeroPage] = useState(true);
+  const [contentPage, setContentPage] = useState(false);
+  const [linksVisibility, setLinksVisibility] = useState(true);
 
   const [displayedContent, setDisplayedContent] = useState("about");
   function showAbout() {
-    setHero(false);
     setDisplayedContent("about");
+    setLinksVisibility(true);
+    if (heroPage) {
+      toggleHero();
+    }
   }
   function showProjects() {
-    setHero(false);
     setDisplayedContent("projects");
+    setLinksVisibility(true);
+    if (heroPage) {
+      toggleHero();
+    }
   }
 
   function showCertificates() {
-    setHero(false);
     setDisplayedContent("certs");
+    setLinksVisibility(true);
+    if (heroPage) {
+      toggleHero();
+    }
   }
 
   const navFncs = [toggleContent, showAbout, showProjects, showCertificates];
 
   function toggleHero() {
-    setHero(!hero);
+    setHeroPage(!heroPage);
 
     setTimeout(() => {
-      setContent(!content);
+      setContentPage(!contentPage);
     }, 500);
   }
 
   function toggleContent() {
-    setContent(!content);
+    setContentPage(!contentPage);
 
     setTimeout(() => {
-      setHero(!hero);
+      setHeroPage(!heroPage);
     }, 500);
   }
 
   return (
     <div className="main-container">
       <AnimatePresence>
-        <Nav hero={hero} fncs={navFncs}></Nav>
-        {hero && <Hero key="hero" togglePage={toggleHero}></Hero>}
-        {content && (
-          <Content key="content" displayedContent={displayedContent} />
+        <Nav hero={heroPage} brand={!heroPage} fncs={navFncs}></Nav>
+        {heroPage && <Hero key="hero" togglePage={toggleHero}></Hero>}
+        {contentPage && (
+          <Content
+            key="content"
+            displayedContent={displayedContent}
+            linksVisibility={linksVisibility}
+            setLinksVisibility={setLinksVisibility}
+          />
         )}
       </AnimatePresence>
     </div>

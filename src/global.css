@@ -14,3 +14,7 @@ body {
 .main-container {
   height: 100dvh;
 }
+
+p {
+  font-weight: 200;
+}

@@ -18,6 +18,7 @@
   position: absolute;
   display: flex;
   align-items: flex-end;
+  z-index: 2;
 }
 
 .content-links {
@@ -60,27 +61,9 @@
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
-
   padding: 2rem;
   padding-top: 0;
   gap: 50px;
-}
-
-.profile {
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-}
-.profile * {
-  width: max-content;
-}
-.profile h3:nth-child(3) {
-  font-weight: 200;
-}
-.profile-details {
-  display: flex;
-  gap: 10px;
 }
 
 .divider {
@@ -88,7 +71,6 @@
   height: 70vh;
   border-radius: 1.5px;
   background-color: #0f1631;
-  margin-top: 50px;
 }
 .main-window {
   display: flex;
@@ -108,6 +90,29 @@
 .main-window h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
+}
+
+.profile {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.profile * {
+  width: max-content;
+}
+.profile h3:nth-child(3) {
+  font-weight: 200;
+}
+.profile-details {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-container {
+  margin-top: 50px;
+  gap: 50px;
+  display: flex;
 }
 
 .dp-container {
@@ -144,16 +149,44 @@
 }
 
 .front {
-  z-index: 2; /* Front face on top */
+  z-index: 1; /* Front face on top */
   transform: rotateY(0deg);
 }
 
-.back {
+.back,
+.celebrate {
   transform: rotateY(180deg);
 }
 
+.celebrate {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+.popper-left {
+  position: absolute;
+  width: 100px;
+  bottom: 0;
+  margin-left: -20px;
+  margin-bottom: -20px;
+  left: 0;
+}
+.popper-right {
+  position: absolute;
+  width: 100px;
+  bottom: 0;
+  margin-right: -20px;
+  margin-bottom: -20px;
+  transform: rotateY(180deg);
+  right: 0;
+}
+
 .front img,
-.back img {
+.back img,
+.celebrate .confetti {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensures images fill the container */
@@ -184,18 +217,21 @@
 }
 
 .list-dot {
-  width: 16px;
-  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
   background-color: white;
   border-radius: 8px;
   display: flex;
-  justify-content: center;
+  align-self: start;
+  margin-top: 8px;
+  margin-bottom: auto;
 }
 .list-line {
-  width: 4px;
-  height: 70px;
+  position: absolute;
+  margin-left: 6px;
+  min-width: 4px;
+  margin-top: 10px;
   background-color: white;
-  margin-top: -60px;
 }
 
 .section {
@@ -206,6 +242,47 @@
   /* width: 100%; */
 }
 
+.section p {
+  text-align: justify;
+}
+section p {
+  text-align: justify;
+}
+
+.quicklinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.quicklinks a {
+  color: white;
+  transition: color 0.2s ease;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+.quicklinks a:hover {
+  color: #5fffb7;
+}
+
+.quicklinks a svg path {
+  fill: white;
+  transition: fill 0.2s ease;
+  cursor: pointer;
+}
+
+.quicklinks a:hover > svg path {
+  fill: #5fffb7;
+}
+.quicklinks:hover > :not(:hover) {
+  color: rgba(95, 255, 183, 0.4);
+}
+
+.quicklinks:hover > :not(:hover) > svg path {
+  fill: rgba(95, 255, 183, 0.4);
+}
+
 .section-row {
   display: flex;
   flex-direction: row;
@@ -213,6 +290,22 @@
   flex-wrap: wrap;
   /* flex-basis: 400px; */
 }
+/* Custom styles for about description */
+.section-about {
+  justify-self: flex-end;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.section-row-about {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  flex-wrap: wrap-reverse;
+  /* flex-basis: 400px; */
+}
+
 .skill-icons {
   display: flex;
   flex-direction: row;
