@@ -126,7 +126,7 @@ function Projects({ linksVisibilityFnc }) {
                 img={scompiler}
                 src="https://vemaiensi.github.io/Basic-Java-Syntax-Checker/"
                 title="Basic Java Syntax Checker"
-                description="A pretty straight forward QR code generator that gives basic customization."
+                description="A program emulating the compiler of Java programming language."
               ></ProjectCard>
             </motion.div>
             <motion.div variants={childVariants} className="section">
@@ -134,7 +134,7 @@ function Projects({ linksVisibilityFnc }) {
                 img={merrmail}
                 src="https://github.com/merrmail/merrmail"
                 title="Merrmail"
-                description="A pretty straight forward QR code generator that gives basic customization."
+                description="An open-source email bot/assistant designed to organize and automate replies to your common emails."
               ></ProjectCard>
             </motion.div>
           </div>

@@ -66,6 +66,7 @@ function Profile({ detailsDisplay, alignment }) {
           <div className="back">
             <img src={image2} />
           </div>
+
           {isBDay && (
             <div className="celebrate">
               <img className="confetti" src={confetti} alt="" />
@@ -80,7 +81,7 @@ function Profile({ detailsDisplay, alignment }) {
         VEM AIENSI A. MARASIGAN
       </h3>
       <h3 style={{ alignSelf: alignment || "flex-start" }}>
-        UI/ UX | Full Stack Web Developer
+        UI/UX | Full Stack Web Developer
       </h3>
       <br />
       {detailsDisplay && (
